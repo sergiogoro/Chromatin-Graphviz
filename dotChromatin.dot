@@ -1,0 +1,48 @@
+graph G {
+  layout = "circo"
+  graph [
+    //truecolor = true
+    bgcolor = "#FFFFFF00"
+    fontname = "Ubuntu"
+  ];
+  node [
+    shape = box
+    style = filled
+    fillcolor = "#FFFFFF"
+    //color = transparent
+    fontcolor = "#0F192A"
+  ];
+  edge [
+    color = "#0F192A"
+    weight = 0.5
+  ];
+  // Nodes
+  Transcripts
+  Exons
+  m
+  Distance
+  Breadth
+  Expression
+  Mutation
+  Recombination
+
+  // Relationships
+  
+  Transcripts -- Exons [ label = "0.2898" ]
+  Transcripts -- m [ label = "0.0268" ]
+  Transcripts -- Distance [ label = "0.2526" ]
+  Transcripts -- Breadth [ label = "-0.2071" ]
+  Transcripts -- Expression [ label = "0.1028" , weight = 3 ]
+  Transcripts -- Mutation [ label = "-0.0336" , weight = 0.1 ]
+  //Transcripts -- Recombination [ label="-0.0147" ]
+
+  Exons -- Transcripts [ label = "0.3476" ]
+  Exons -- m [ label = "0.5496" ]
+  Exons -- Distance [ label = "-0.0954" ]
+  //Exons -- Breadth [ label = "0.0072" ]
+  Exons -- Expression [ label = "-0.0797" ]
+  //Exons -- Mutation [ label = "-0.0001" ]
+  Exons -- Recombination [ label = "0.0312" ]
+
+
+}

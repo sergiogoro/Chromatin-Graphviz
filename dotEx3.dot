@@ -1,0 +1,6 @@
+digraph G2 {
+  A -> B [ label = "Edge A to B" ]
+  B -> C [ label = "Edge B to C" ]
+  A [ label = "Node A" , color = "red" , fontcolor = "blue" ]
+  B [ shape = "circle" ]
+}
