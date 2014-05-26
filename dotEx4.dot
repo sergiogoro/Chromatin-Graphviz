@@ -1,0 +1,4 @@
+digraph G3 {
+  A -> { B ; C ; D }
+  C -> { B ; A }
+}

@@ -1,0 +1,9 @@
+digraph G4 {
+  nodesep=1.0
+  node [ color = red , fontname=Courier ]
+  edge [ color = blue , style= dashed ]
+  A -> { B C D E }
+  {rank =same; C D } // C & D have the same rank
+  C -> F
+  C -> D [ dir = both ]
+}
