@@ -1,0 +1,80 @@
+// http://www.graphviz.org/content/attrs
+
+rm(list=ls())
+
+digraph G1_1 {
+  A -> B
+  B -> C
+}
+
+graph G1_2 {
+  A -- B
+  B -- C
+}
+
+digraph G2 {
+  A -> B [ label = "Edge A to B" ]
+  B -> C [ label = "Edge B to C" ]
+  A [ label = "Node A" , color = "red" , fontcolor = "blue" ]
+  B [ shape = "circle" ]
+}
+
+digraph G3 {
+  A -> { B ; C ; D }
+  C -> { B ; A }
+}
+
+digraph G4 {
+  nodesep=1.0
+  node [ color = red , fontname=Courier ]
+  edge [ color = blue , style= dashed ]
+  A -> { B C D E }
+  {rank =same; C D } // C & D have the same rank
+  C -> F
+  C -> D [ dir = both ]
+}
+
+//penwidth
+    //Specifies the width of the pen, in points, used to draw lines and curves, including the boundaries of edges and clusters. The value is inherited by subclusters. It has no effect on text. 
+
+graph G {
+        // General Settings
+        graph [
+            truecolor=true
+            bgcolor="#FFFFFF00"
+            fontname = "Ubuntu"
+        ];
+        node [
+            shape=box
+            style=filled
+            fillcolor="#FFFFFF"
+            color=transparent
+            fontcolor="#0F192A"
+        ];
+        edge [
+            color="#0F192A"
+        ];
+        // Define our Nodes
+        schema [label="Schema\nDefinition" shape=diamond color="#0F192A" penwidth=3];
+        database [label="Database"];
+        ui [label="Web UI"];
+        mobile [label="Mobile UI"];
+        validation [label="Validation"];
+        crud [label="CRUD\nOperations"];
+        sync [label="SYNC"];
+        query [label="Query\nGenerator"];
+        clustering [label="Marker\nClustering"];
+        search [label="Search"];
+        // Define our Connections
+        schema -> database;
+        schema -> crud;
+        schema -> ui;
+        schema -> mobile;
+        ui -> crud -> database
+        schema -> query -> database;
+        query -> search -> database;
+        query -> clustering;
+        database -> validation -> database;
+        database -> sync;
+        crud -> validation;
+    }
